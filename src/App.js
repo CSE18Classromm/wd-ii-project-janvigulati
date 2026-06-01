@@ -1,12 +1,13 @@
+
 import React, { useState } from "react";
 import "./App.css";
 
 function App() {
 
   const [search, setSearch] = useState("");
-const [cartCount, setCartCount] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
+
   const products = [
-    
     {
       id: 1,
       name: "Smartphone",
@@ -72,13 +73,13 @@ const [cartCount, setCartCount] = useState(0);
     },
   ];
 
- const filteredProducts = products.filter((product) =>
-  product.name.toLowerCase().includes(search.toLowerCase())
-);
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(search.toLowerCase())
+  );
 
-const addToCart = () => {
-  setCartCount(cartCount + 1);
-};
+  const addToCart = () => {
+    setCartCount(cartCount + 1);
+  };
 
   return (
     <div className="app">
@@ -109,9 +110,6 @@ const addToCart = () => {
             <h2>EasyBuy</h2>
 
           </div>
-          <div className="cart">
-  🛒 Cart: {cartCount}
-</div>
 
         </header>
 
@@ -126,15 +124,23 @@ const addToCart = () => {
 
         </section>
 
-        {/* SEARCH BAR */}
-        <div className="search-bar">
+        {/* SEARCH + CART */}
+        <div className="search-container">
 
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+          <div className="search-bar">
+
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+
+          </div>
+
+          <div className="cart-box">
+            🛒 Cart: {cartCount}
+          </div>
 
         </div>
 
@@ -153,9 +159,9 @@ const addToCart = () => {
 
                 <p className="price">{product.price}</p>
 
-               <button onClick={addToCart}>
-  Add to Cart
-</button>
+                <button onClick={addToCart}>
+                  Add to Cart
+                </button>
 
               </div>
 
@@ -172,7 +178,7 @@ const addToCart = () => {
             <strong>EasyBuy</strong> – Your Trusted Online Store
           </p>
 
-          <p>© 2026 EasyBuy. All Rights Reserved.</p>
+          <p>© 2025 EasyBuy. All Rights Reserved.</p>
 
         </footer>
 
